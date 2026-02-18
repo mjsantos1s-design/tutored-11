@@ -66,7 +66,7 @@ function init() {
 
    //Insert the HTML code for the first puzzle table
    document.getElementById("puzzle").innerHTML =
-   drawPuzzle(puzzle1Hint, puzzleRating, puzzle1);
+   drawPuzzle(puzzle1Hint, puzzle1Rating, puzzle1);
 
    //Add event handlers for the puzzle buttons
    var puzzleButtons = document.getElementsByClassName("puzzles");
@@ -157,6 +157,12 @@ function setupPuzzle() {
          //Display incorrect white cells in pink
          for (var i = 0; i < filled.length; i++) {
             if(filled[i].style.backgroundColor === "rgb(255, 255, 255)"){
+               filled[i].style.backgroundColor = "rgb(255, 211, 211)";
+            }
+         }
+         //Display incorrect white cells in red
+         for (var i = 0; i < filled.length; i++) {
+            if(filled[i].style.backgroundColor === "rgb(101, 101, 101)"){
                filled[i].style.backgroundColor = "rgb(255, 101, 101)";
             }
          }
@@ -184,10 +190,10 @@ function setBackground(e) {
       cursorType = "url(../png/jpf_eraser.png), cell";
    } else if (e.altKey) {
       cellBackground = "rgb(255, 255, 255)";
-      cursorType = "url(../png/jpf_eraser.png), cell";
+      cursorType = "url(../png/jpf_eraser.png), crosshair";
    } else {
       cellBackground = "rgb(101, 101, 101)";
-      cursorType = "url(../png/jpf_eraser.png), cell";
+      cursorType = "url(../png/jpf_eraser.png), pointer";
    }
    e.target.style.backgroundColor = cellBackground;
 
