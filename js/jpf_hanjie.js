@@ -93,7 +93,6 @@ function init() {
 function swapPuzzle(e) {
    if (comnfirm("You will lose all fo your work on the puzzle! Continue?")) {
    var puzzleID = e.target.id;
-
    var puzzleTitle = e.target.value;
    document.getElementById("puzzleTitle").innerHTML = puzzleTitle;
 
@@ -122,16 +121,16 @@ function setupPuzzle() {
 
    /* Set the initial color of each cell to gold */
    for (var i = 0; i < puzzleCells.length; i++) {
-      puzzleCells[i].computedStyleMap.backgroundColor = "rgb(233, 207, 29)";
+      puzzleCells[i].style.backgroundColor = "rgb(233, 207, 29)";
       //set the cell background color in response to the mousedown event
       puzzleCells[i].onmousedown = setBackground;
       // Use a pencil image as the cursor
       puzzleCells[i].style.cursor = "url(../png/jpf_pencil.png), pointer";
    }
 
-   //Check the  puzzle solution
+   //Check the puzzle solution
    document.getElementById("hanjieGrid").addEventListener("mouseup", 
-      function(){
+      function() {
          var solved = true;
          for(var i =0; i< puzzleCells.length; i++) {
             if ((puzzleCells[i].className === "filled" &&
@@ -145,7 +144,8 @@ function setupPuzzle() {
                }
          }
          if (solved) alert("You Solved the Puzzle");
-   })
+   }
+)
 
    //Create object collections of the filled and empty cells
    var filled = document.querySelectorAll("table#hajieGrid td.filled");
@@ -156,13 +156,13 @@ function setupPuzzle() {
       function() {
          //Display incorrect white cells in pink
          for (var i = 0; i < filled.length; i++) {
-            if(filled[i].style.backgroundColor === "rgb(255, 255, 255)"){
+            if (filled[i].style.backgroundColor === "rgb(255, 255, 255)"){
                filled[i].style.backgroundColor = "rgb(255, 211, 211)";
             }
          }
          //Display incorrect white cells in red
          for (var i = 0; i < filled.length; i++) {
-            if(filled[i].style.backgroundColor === "rgb(101, 101, 101)"){
+            if (filled[i].style.backgroundColor === "rgb(101, 101, 101)"){
                filled[i].style.backgroundColor = "rgb(255, 101, 101)";
             }
          }
@@ -185,7 +185,7 @@ function setupPuzzle() {
 
 function setBackground(e) {
    // Set the background based on the keyboard key
-   if(e.shiftKey) {
+   if (e.shiftKey) {
       cellBackground = "rgb(233, 207, 29)";
       cursorType = "url(../png/jpf_eraser.png), cell";
    } else if (e.altKey) {
