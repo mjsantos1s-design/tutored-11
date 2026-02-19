@@ -91,7 +91,7 @@ function init() {
 }
 
 function swapPuzzle(e) {
-   if (comnfirm("You will lose all fo your work on the puzzle! Continue?")) {
+   if (confirm("You will lose all fo your work on the puzzle! Continue?")) {
    var puzzleID = e.target.id;
    var puzzleTitle = e.target.value;
    document.getElementById("puzzleTitle").innerHTML = puzzleTitle;
@@ -152,7 +152,7 @@ function setupPuzzle() {
    var empty = document.querySelectorAll("table#hajieGrid td.empty");
 
    //Create an event listener to highlight incorrect cells
-   document.getElementById("peek").addEventListener("click"
+   document.getElementById("peek").addEventListener("click",
       function() {
          //Display incorrect white cells in pink
          for (var i = 0; i < filled.length; i++) {
@@ -180,7 +180,7 @@ function setupPuzzle() {
                }
             }, 500);
       }
-   )
+   );
 }
 
 function setBackground(e) {
